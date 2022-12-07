@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:study04/screens/home_screens.dart';
-import 'package:study04/services/api_service.dart';
+
+import 'screens/home_screens.dart';
 
 void main() {
   runApp(const App());

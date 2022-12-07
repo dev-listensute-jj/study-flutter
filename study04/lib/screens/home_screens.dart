@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:study04/models/webtoon_model.dart';
-import 'package:study04/services/api_service.dart';
-import 'package:study04/widgets/webtoon_widget.dart';
+
+import '../models/webtoon_model.dart';
+import '../services/api_service.dart';
+import '../widgets/webtoon_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -37,7 +38,9 @@ class HomeScreen extends StatelessWidget {
             );
           }
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: Colors.green,
+            ),
           );
         },
       ),
