@@ -12,7 +12,7 @@ GetX <a> https://dev-yakuza.posstree.com/en/flutter/getx/route/#getuntil
     - Ex) Get.off(Second())
 
 ### 3. Get.offNamed
-    - `Named Route` 에 명시된 스크린까지 현재 스크린을 지우고 새로운 스크린을 추가한다.
+    - Named Route 에 명시된 스크린까지 현재 스크린을 지우고 새로운 스크린을 추가한다.
     - __Navigation.pushReplacementNamed()__ 와 기능이 동일하다.
     - Ex) Get.offNamed('/Second')
 
