@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../main.dart';
 
@@ -134,26 +135,31 @@ class HomeScreen extends StatelessWidget {
                       color: Color(thcolor),
                     ),
                   ),
-                  Container(
-                    height: 20,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: const Color(thcolor),
-                        width: 1,
+                  InkWell(
+                    child: Container(
+                      height: 20,
+                      width: 60,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color(thcolor),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(45),
                       ),
-                      borderRadius: BorderRadius.circular(45),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'More',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w300,
-                          color: Color(thcolor),
+                      child: const Center(
+                        child: Text(
+                          'More',
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w300,
+                            color: Color(thcolor),
+                          ),
                         ),
                       ),
                     ),
+                    onTap: () {
+                      print('On Sale tap!');
+                    },
                   ),
                 ],
               ),
@@ -204,41 +210,44 @@ class HomeScreen extends StatelessWidget {
                 child: ListView.separated(
                   itemCount: appid.length,
                   itemBuilder: (context, index) {
-                    return SizedBox(
-                      height: 50,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              appid[index],
-                              style: const TextStyle(
-                                fontSize: 12,
-                                color: Color(thcolor),
+                    return InkWell(
+                      onTap: () {},
+                      child: SizedBox(
+                        height: 50,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                appid[index],
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: Color(thcolor),
+                                ),
                               ),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  disrate[index],
-                                  style: const TextStyle(
-                                      color: Color(thcolor), fontSize: 12),
-                                ),
-                                const SizedBox(
-                                  width: 40,
-                                ),
-                                Text(
-                                  '${appprice[index]}',
-                                  style: const TextStyle(
-                                    color: Color(thcolor),
+                              Row(
+                                children: [
+                                  Text(
+                                    disrate[index],
+                                    style: const TextStyle(
+                                        color: Color(thcolor), fontSize: 12),
                                   ),
-                                ),
-                              ],
-                            )
-                          ],
+                                  const SizedBox(
+                                    width: 40,
+                                  ),
+                                  Text(
+                                    '${appprice[index]}',
+                                    style: const TextStyle(
+                                      color: Color(thcolor),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     );
@@ -265,26 +274,31 @@ class HomeScreen extends StatelessWidget {
                       color: Color(thcolor),
                     ),
                   ),
-                  Container(
-                    height: 20,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: const Color(thcolor),
-                        width: 1,
+                  InkWell(
+                    child: Container(
+                      height: 20,
+                      width: 60,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color(thcolor),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(45),
                       ),
-                      borderRadius: BorderRadius.circular(45),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'More',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w300,
-                          color: Color(thcolor),
+                      child: const Center(
+                        child: Text(
+                          'More',
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w300,
+                            color: Color(thcolor),
+                          ),
                         ),
                       ),
                     ),
+                    onTap: () {
+                      print('Top 100 tap!');
+                    },
                   ),
                 ],
               ),
@@ -332,7 +346,55 @@ class HomeScreen extends StatelessWidget {
                   border: Border.all(width: 0.5, color: const Color(thcolor)),
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: ListView(),
+                child: ListView.separated(
+                  itemCount: appid.length,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () => Get.toNamed('/detail'),
+                      child: SizedBox(
+                        height: 50,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                appid[index],
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: Color(thcolor),
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    '${likes[index]}',
+                                    style: const TextStyle(
+                                        color: Color(thcolor), fontSize: 12),
+                                  ),
+                                  const SizedBox(
+                                    width: 40,
+                                  ),
+                                  Text(
+                                    '${appprice[index]}',
+                                    style: const TextStyle(
+                                      color: Color(thcolor),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) => const Divider(
+                    color: Color(thcolor),
+                  ),
+                ),
               ),
             ),
           ],
